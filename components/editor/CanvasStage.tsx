@@ -37,8 +37,11 @@ export function CanvasStage({
     if (!node) return;
     const measure = () => setNat({ w: node.offsetWidth, h: node.offsetHeight });
     measure();
+    // Observe the border box: inset (backgroundPadding) grows the canvas'
+    // padding without changing its fit-content content box, so a default
+    // content-box observer wouldn't fire and the view wouldn't re-center.
     const ro = new ResizeObserver(measure);
-    ro.observe(node);
+    ro.observe(node, { box: "border-box" });
     return () => ro.disconnect();
   }, [canvasRef]);
 

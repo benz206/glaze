@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, type RefObject } from "react";
-import { Check, Copy, Download, FileCode, LayoutGrid, RotateCcw, Sparkles } from "lucide-react";
+import { Check, Copy, Download, FileCode, LayoutGrid, RotateCcw } from "lucide-react";
+import { GlazeLogo } from "@/components/GlazeLogo";
 import { useSnippetStore } from "@/lib/store";
 import { useUIStore } from "@/lib/ui";
 import { copyImageToClipboard, exportImage } from "@/lib/export";
@@ -52,9 +53,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
   return (
     <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border bg-panel px-4">
       <div className="flex items-center gap-2">
-        <span className="glaze-grad grid h-7 w-7 place-items-center rounded-lg text-white shadow-sm">
-          <Sparkles size={16} />
-        </span>
+        <GlazeLogo className="h-7 w-7 drop-shadow-sm" />
         <span className="glaze-grad-text text-sm font-semibold tracking-tight">Glaze</span>
         <span className="hidden text-xs text-faint sm:inline">code → image</span>
       </div>
