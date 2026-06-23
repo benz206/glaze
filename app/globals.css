@@ -1,26 +1,156 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --color-canvas: #08080a;
+  --color-panel: #111114;
+  --color-panel-2: #17171c;
+  --color-elevated: #1f1f26;
+  --color-border: #26262f;
+  --color-border-soft: #1d1d24;
+  --color-muted: #8b8b99;
+  --color-faint: #5a5a66;
+  --color-accent: #8b80f9;
+  --color-accent-soft: #2a2740;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-canvas);
+  color: #ededf2;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Thin, unobtrusive scrollbars for panels and the workspace. */
+.glaze-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-elevated) transparent;
+}
+.glaze-scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.glaze-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-elevated);
+  border-radius: 9999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+.glaze-scroll::-webkit-scrollbar-thumb:hover {
+  background: #2c2c36;
+  background-clip: padding-box;
+}
+
+/* Range inputs share the accent color. */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-elevated);
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #fff;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #fff;
+  border: 2px solid var(--color-accent);
+}
+
+/* Native color input -> just the swatch, no chrome. */
+input[type="color"] {
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+/* ---- Code overlay: textarea and highlighted <pre> must align exactly ---- */
+.glaze-code {
+  position: relative;
+}
+.glaze-code pre.shiki,
+.glaze-code textarea.glaze-input {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: 0;
+  tab-size: 2;
+  -moz-tab-size: 2;
+  background: transparent !important;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+/* Wrap mode keeps the textarea and the highlighted layer breaking identically. */
+.glaze-code.wrap pre.shiki,
+.glaze-code.wrap textarea.glaze-input {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+.glaze-code pre.shiki {
+  overflow: visible;
+  pointer-events: none;
+}
+.glaze-code pre.shiki code {
+  display: block;
+  width: 100%;
+}
+.glaze-code textarea.glaze-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  outline: none;
+  color: transparent;
+  background: transparent;
+  -webkit-text-fill-color: transparent;
+  overflow: hidden;
+}
+.glaze-code textarea.glaze-input::selection {
+  background: rgba(135, 128, 249, 0.32);
+}
+
+/* The grain overlay sits above the background gradient (texture set inline). */
+.glaze-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
