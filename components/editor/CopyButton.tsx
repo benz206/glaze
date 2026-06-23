@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { createElement, useState } from "react";
 import { useSnippetStore } from "@/lib/store";
 import { CHECK_ICON, iconById } from "@/lib/icons";
 import { readableTextColor } from "@/lib/color";
@@ -19,7 +19,7 @@ export function CopyButton() {
 
   if (!show) return null;
 
-  const Icon = copied ? CHECK_ICON : iconById(iconId);
+  const icon = copied ? CHECK_ICON : iconById(iconId);
 
   async function copy() {
     try {
@@ -51,7 +51,7 @@ export function CopyButton() {
       style={style}
       className="inline-flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium leading-none backdrop-blur-sm transition-opacity hover:opacity-80"
     >
-      <Icon size={mode === "text" ? 13 : 15} />
+      {createElement(icon, { size: mode === "text" ? 13 : 15 })}
       {mode === "text" && <span>{copied ? "Copied!" : text}</span>}
     </button>
   );
