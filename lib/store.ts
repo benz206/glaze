@@ -82,6 +82,8 @@ interface SnippetStore extends SnippetSettings {
   setBackground: (patch: Partial<BackgroundState>) => void;
   /** Patch one of the three traffic-light colors. */
   setTrafficLightColor: (which: keyof SnippetSettings["trafficLightColors"], color: string) => void;
+  /** Apply a premade style preset (look only; leaves code/language/title). */
+  applyPreset: (patch: Partial<SnippetSettings>) => void;
   /** Restore every setting to its default. */
   reset: () => void;
 }
@@ -98,6 +100,8 @@ export const useSnippetStore = create<SnippetStore>((set) => ({
     set((state) => ({
       trafficLightColors: { ...state.trafficLightColors, [which]: color },
     })),
+
+  applyPreset: (patch) => set((state) => ({ ...state, ...patch })),
 
   reset: () => set({ ...DEFAULT_SETTINGS }),
 }));
