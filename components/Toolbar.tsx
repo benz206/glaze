@@ -52,10 +52,10 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
   return (
     <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border bg-panel px-4">
       <div className="flex items-center gap-2">
-        <span className="grid h-7 w-7 place-items-center rounded-lg bg-accent text-white">
+        <span className="glaze-grad grid h-7 w-7 place-items-center rounded-lg text-white shadow-sm">
           <Sparkles size={16} />
         </span>
-        <span className="text-sm font-semibold tracking-tight">Glaze</span>
+        <span className="glaze-grad-text text-sm font-semibold tracking-tight">Glaze</span>
         <span className="hidden text-xs text-faint sm:inline">code → image</span>
       </div>
 
@@ -65,13 +65,16 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
         <button
           type="button"
           onClick={() => openStudio()}
-          className="flex h-8 items-center gap-1.5 rounded-lg border border-border bg-panel-2 px-3 text-xs font-medium text-white hover:bg-elevated"
+          className="glaze-grad flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
         >
           <LayoutGrid size={15} />
           Studio
         </button>
 
-        <div className="flex items-center rounded-lg border border-border bg-panel-2 p-0.5">
+        <div
+          title="Export resolution"
+          className="flex items-center rounded-lg border border-border bg-panel-2 p-0.5"
+        >
           {SCALES.map((s) => (
             <button
               key={s}
@@ -120,7 +123,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
           type="button"
           onClick={() => run("png")}
           disabled={busy !== null}
-          className="flex h-8 items-center gap-1.5 rounded-lg bg-accent px-3 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50"
+          className="glaze-grad flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50"
         >
           <Download size={15} />
           {busy === "png" ? "Rendering…" : "Export PNG"}

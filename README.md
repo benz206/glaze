@@ -9,6 +9,13 @@ clipboard. No accounts, no server, nothing leaves the page.
 
 ## Features
 
+- **Style presets** — 16 curated one-click looks (theme + font + window + background),
+  picked from the panel gallery or the studio browser.
+- **Studio browser** — a full-screen modal to *preview* before you commit: every syntax
+  theme rendered live with your own code, plus fonts, backgrounds, and the full preset
+  gallery, with search and a dark/light filter.
+- **View zoom** — zoom the preview with the on-canvas controls or Ctrl/Cmd-scroll, fully
+  independent of the export resolution.
 - **Real syntax highlighting** — [Shiki](https://shiki.style) (the same engine as
   VS Code), 30+ themes and 35+ languages, loaded on demand.
 - **Live editor** — a transparent textarea sits over the highlighted layer, so you
@@ -22,7 +29,8 @@ clipboard. No accounts, no server, nothing leaves the page.
   variants, custom color and corner radius — or hide it.
 - **Backgrounds** — solid swatches, gradient presets + custom angle/stops, layered
   mesh gradients, image URLs, transparent (alpha-preserving), and optional film grain.
-- **Export** — PNG or SVG at 1×/2×/3×, or copy the image to the clipboard.
+- **Export** — PNG or SVG at 1×/2×/3× (export *resolution*, separate from view zoom),
+  or copy the image to the clipboard.
 - **Fonts** — JetBrains Mono, Geist Mono, Fira Code, IBM Plex Mono, Source Code Pro,
   plus adjustable size and line height.
 
@@ -60,20 +68,27 @@ app/
   page.tsx                # studio shell: toolbar · canvas · control panel
   globals.css             # UI theme tokens + code-overlay alignment rules
 components/
-  Toolbar.tsx             # logo, export scale, PNG/SVG/copy, reset
+  Toolbar.tsx             # logo, Studio, export scale, PNG/SVG/copy, reset
   editor/
+    CanvasStage.tsx       # scroll workspace + view zoom (transform around the ref)
     SnippetCanvas.tsx     # background + padding; the export target (ref)
     WindowFrame.tsx       # window chrome, opacity blend, shadow
     CodeEditor.tsx        # Shiki overlay + transparent textarea
     TrafficLights.tsx     # the three buttons
     CopyButton.tsx        # configurable copy control
   panel/                  # one Section per control group
-    ControlPanel.tsx  CodeSection.tsx  WindowSection.tsx
-    ControlsSection.tsx  CopyButtonSection.tsx  BackgroundSection.tsx
+    ControlPanel.tsx  PresetSection.tsx  CodeSection.tsx
+    WindowSection.tsx  ControlsSection.tsx  CopyButtonSection.tsx
+    BackgroundSection.tsx
+  studio/                 # the full-screen browser modal
+    StudioModal.tsx  PresetGallery.tsx  PresetCard.tsx
+    ThemeGallery.tsx  ThemePreview.tsx  FontGallery.tsx  BackgroundGallery.tsx
   ui/                     # Section + small control primitives
 lib/
-  store.ts                # Zustand store + defaults
+  store.ts                # Zustand store + defaults (+ applyPreset)
+  ui.ts                   # studio modal + view-zoom state
   highlighter.ts          # lazy Shiki singleton (on-demand themes/langs)
+  presets.ts              # curated style presets
   themes.ts languages.ts fonts.ts backgrounds.ts icons.ts
   export.ts               # html-to-image helpers
   color.ts cn.ts          # small utilities
