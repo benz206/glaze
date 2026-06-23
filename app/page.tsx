@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { Toolbar } from "@/components/Toolbar";
 import { ControlPanel } from "@/components/panel/ControlPanel";
-import { SnippetCanvas } from "@/components/editor/SnippetCanvas";
+import { CanvasStage } from "@/components/editor/CanvasStage";
 import { StudioModal } from "@/components/studio/StudioModal";
 
 export default function Home() {
@@ -14,22 +14,7 @@ export default function Home() {
       <Toolbar canvasRef={canvasRef} />
 
       <div className="flex min-h-0 flex-1">
-        <main
-          className="glaze-scroll flex-1 overflow-auto"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px)",
-            backgroundSize: "22px 22px",
-          }}
-        >
-          <div
-            className="flex min-h-full p-12"
-            style={{ justifyContent: "safe center", alignItems: "safe center" }}
-          >
-            <SnippetCanvas ref={canvasRef} />
-          </div>
-        </main>
-
+        <CanvasStage canvasRef={canvasRef} />
         <ControlPanel />
       </div>
 
