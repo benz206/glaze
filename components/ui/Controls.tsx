@@ -15,6 +15,23 @@ export function Row({ label, children }: { label: string; children: React.ReactN
   );
 }
 
+/* ---------------------------------------------------------------- Field --- */
+
+export function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="space-y-1.5">
+      <span className="text-xs text-muted">{label}</span>
+      {children}
+    </div>
+  );
+}
+
 /* --------------------------------------------------------------- Slider --- */
 
 export function Slider({
