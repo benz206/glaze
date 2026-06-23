@@ -51,7 +51,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
   }
 
   return (
-    <header className="flex h-14 shrink-0 items-center gap-4 border-b border-border bg-panel px-4">
+    <header className="glaze-animate-in flex h-14 shrink-0 items-center gap-4 border-b border-border bg-panel px-4">
       <div className="flex items-center gap-2">
         <GlazeLogo className="h-7 w-7 drop-shadow-sm" />
         <span className="glaze-grad-text text-sm font-semibold tracking-tight">Glaze</span>
@@ -64,7 +64,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
         <button
           type="button"
           onClick={() => openStudio()}
-          className="glaze-grad flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold text-white shadow-sm transition-opacity hover:opacity-90"
+          className="flex h-8 items-center gap-1.5 rounded-lg bg-accent px-3 text-xs font-semibold text-white shadow-sm hover:brightness-110 active:scale-[0.98] active:brightness-95"
         >
           <LayoutGrid size={15} />
           Studio
@@ -72,7 +72,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
 
         <div
           title="Export resolution"
-          className="flex items-center rounded-lg border border-border bg-panel-2 p-0.5"
+          className="flex items-center rounded-lg border border-control-border bg-control p-0.5"
         >
           {SCALES.map((s) => (
             <button
@@ -80,8 +80,10 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
               type="button"
               onClick={() => setScale(s)}
               className={cn(
-                "rounded-md px-2 py-1 text-xs font-medium transition-colors",
-                scale === s ? "bg-elevated text-white" : "text-muted hover:text-white",
+                "rounded-md px-2 py-1 text-xs font-medium",
+                scale === s
+                  ? "bg-accent text-white shadow-sm"
+                  : "text-muted hover:bg-control-hover hover:text-white",
               )}
             >
               {s}×
@@ -93,7 +95,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
           type="button"
           onClick={reset}
           title="Reset to defaults"
-          className="grid h-8 w-8 place-items-center rounded-lg border border-border bg-panel-2 text-muted hover:text-white"
+          className="grid h-8 w-8 place-items-center rounded-lg border border-control-border bg-control text-muted hover:bg-control-hover hover:text-white active:scale-95"
         >
           <RotateCcw size={15} />
         </button>
@@ -102,7 +104,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
           type="button"
           onClick={() => run("svg")}
           disabled={busy !== null}
-          className="flex h-8 items-center gap-1.5 rounded-lg border border-border bg-panel-2 px-3 text-xs font-medium text-white hover:bg-elevated disabled:opacity-50"
+          className="flex h-8 items-center gap-1.5 rounded-lg border border-control-border bg-control px-3 text-xs font-medium text-white hover:bg-control-hover active:scale-[0.98] disabled:opacity-50"
         >
           <FileCode size={15} />
           SVG
@@ -112,7 +114,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
           type="button"
           onClick={() => run("copy")}
           disabled={busy !== null}
-          className="flex h-8 items-center gap-1.5 rounded-lg border border-border bg-panel-2 px-3 text-xs font-medium text-white hover:bg-elevated disabled:opacity-50"
+          className="flex h-8 items-center gap-1.5 rounded-lg border border-control-border bg-control px-3 text-xs font-medium text-white hover:bg-control-hover active:scale-[0.98] disabled:opacity-50"
         >
           {copied ? <Check size={15} className="text-green-400" /> : <Copy size={15} />}
           {copied ? "Copied" : "Copy"}
@@ -122,7 +124,7 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
           type="button"
           onClick={() => run("png")}
           disabled={busy !== null}
-          className="glaze-grad flex h-8 items-center gap-1.5 rounded-lg px-3 text-xs font-semibold text-white hover:opacity-90 disabled:opacity-50"
+          className="flex h-8 items-center gap-1.5 rounded-lg bg-accent px-3 text-xs font-semibold text-white hover:brightness-110 active:scale-[0.98] active:brightness-95 disabled:opacity-50"
         >
           <Download size={15} />
           {busy === "png" ? "Rendering…" : "Export PNG"}

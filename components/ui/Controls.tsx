@@ -119,17 +119,17 @@ export function Segmented<T extends string>({
   onChange: (v: T) => void;
 }) {
   return (
-    <div className="flex gap-1 rounded-lg bg-panel-2 p-1">
+    <div className="flex gap-1 rounded-lg bg-control p-1">
       {options.map((o) => (
         <button
           key={o.value}
           type="button"
           onClick={() => onChange(o.value)}
           className={cn(
-            "flex-1 rounded-md px-2 py-1 text-xs font-medium transition-colors",
+            "flex-1 rounded-md px-2 py-1 text-xs font-medium",
             value === o.value
-              ? "bg-elevated text-white shadow-sm"
-              : "text-muted hover:text-white",
+              ? "bg-accent text-white shadow-sm"
+              : "text-muted hover:bg-control-hover hover:text-white",
           )}
         >
           {o.label}

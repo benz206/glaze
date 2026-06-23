@@ -73,7 +73,7 @@ export function CanvasStage({
   const positioned = nat.w > 0;
 
   return (
-    <main className="relative min-h-0 flex-1">
+    <main className="glaze-animate-in relative min-h-0 flex-1 [animation-delay:60ms]">
       <div
         ref={scrollRef}
         className="glaze-scroll absolute inset-0 overflow-auto"
@@ -139,7 +139,7 @@ function ZoomControl({
         type="button"
         onClick={onReset}
         title="Reset to 100%"
-        className="min-w-[3.25rem] rounded-md px-2 py-1 text-center text-xs font-medium tabular-nums text-white hover:bg-elevated"
+        className="min-w-[3.25rem] rounded-md px-2 py-1 text-center text-xs font-medium tabular-nums text-white hover:bg-control-hover active:scale-95"
       >
         {Math.round(zoom * 100)}%
       </button>
@@ -169,7 +169,7 @@ function ZoomBtn({
       onClick={onClick}
       title={label}
       aria-label={label}
-      className="grid h-7 w-7 place-items-center rounded-md text-muted hover:bg-elevated hover:text-white"
+      className="grid h-7 w-7 place-items-center rounded-md text-muted hover:bg-control-hover hover:text-white active:scale-95"
     >
       {children}
     </button>

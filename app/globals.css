@@ -12,8 +12,14 @@
   --color-border-soft: #1d1d24;
   --color-muted: #8b8b99;
   --color-faint: #5a5a66;
-  --color-accent: #8b80f9;
-  --color-accent-soft: #2a2740;
+  --color-accent: #8b5cf6;
+  --color-accent-strong: #7c3aed;
+  --color-accent-soft: #2b2348;
+
+  /* Violet-tinted surfaces for secondary buttons (rest / hover). */
+  --color-control: #1d1830;
+  --color-control-hover: #281f44;
+  --color-control-border: #352a52;
 }
 
 html,
@@ -25,6 +31,77 @@ body {
   background: var(--color-canvas);
   color: #ededf2;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ---- Global interaction polish ----------------------------------------- */
+/* Tailwind v4 drops the default button cursor; restore it for affordance. */
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+label[for],
+summary {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Smooth, consistent easing on interactive surfaces so state changes glide
+   rather than snap. Layout-affecting properties are deliberately excluded. */
+button,
+a,
+select,
+input,
+[role="button"] {
+  transition-property: color, background-color, border-color, box-shadow,
+    opacity, transform, filter;
+  transition-duration: 160ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---- Entrance animations ----------------------------------------------- */
+@keyframes glaze-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes glaze-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes glaze-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.glaze-animate-in {
+  animation: glaze-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.glaze-fade {
+  animation: glaze-fade 0.35s ease both;
+}
+.glaze-pop {
+  animation: glaze-pop 0.24s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .glaze-animate-in,
+  .glaze-fade,
+  .glaze-pop {
+    animation: none;
+  }
 }
 
 /* Thin, unobtrusive scrollbars for panels and the workspace. */
@@ -167,10 +244,7 @@ input[type="color"]::-moz-color-swatch {
   font-family: var(--font-mono);
 }
 
-/* ---- Brand gradient (purple → pink → blue) for primary accents ---- */
-.glaze-grad {
-  background-image: linear-gradient(120deg, #9b5de5 0%, #f15bb5 50%, #4361ee 100%);
-}
+/* ---- Brand gradient (purple → pink → blue) for the wordmark ---- */
 .glaze-grad-text {
   background-image: linear-gradient(120deg, #b78bff 0%, #f57fc4 50%, #6d8bff 100%);
   -webkit-background-clip: text;

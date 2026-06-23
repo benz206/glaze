@@ -43,15 +43,15 @@ export function StudioModal() {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8">
       <div
         onClick={close}
-        className="absolute inset-0 bg-black/65 backdrop-blur-sm"
+        className="glaze-fade absolute inset-0 bg-black/65 backdrop-blur-sm"
         aria-hidden
       />
 
-      <div className="relative flex h-[84vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-border bg-panel shadow-2xl">
+      <div className="glaze-pop relative flex h-[84vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-border bg-panel shadow-2xl">
         <header className="flex items-center gap-4 border-b border-border px-5 py-3">
           <span className="text-sm font-semibold tracking-tight">Studio</span>
 
-          <div className="flex gap-1 overflow-x-auto rounded-lg bg-panel-2 p-1">
+          <div className="flex gap-1 overflow-x-auto rounded-lg bg-control p-1">
             {TABS.map((t) => {
               const Icon = t.icon;
               const active = tab === t.value;
@@ -61,8 +61,10 @@ export function StudioModal() {
                   type="button"
                   onClick={() => openStudio(t.value)}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium whitespace-nowrap transition-colors",
-                    active ? "bg-elevated text-white" : "text-muted hover:text-white",
+                    "flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium whitespace-nowrap",
+                    active
+                      ? "bg-accent text-white shadow-sm"
+                      : "text-muted hover:bg-control-hover hover:text-white",
                   )}
                 >
                   <Icon size={14} />
@@ -76,13 +78,13 @@ export function StudioModal() {
             type="button"
             onClick={close}
             title="Close (Esc)"
-            className="ml-auto grid h-8 w-8 place-items-center rounded-lg border border-border bg-panel-2 text-muted hover:text-white"
+            className="ml-auto grid h-8 w-8 place-items-center rounded-lg border border-control-border bg-control text-muted hover:bg-control-hover hover:text-white active:scale-95"
           >
             <X size={15} />
           </button>
         </header>
 
-        <div className="glaze-scroll flex-1 overflow-y-auto p-5">
+        <div key={tab} className="glaze-fade glaze-scroll flex-1 overflow-y-auto p-5">
           {tab === "styles" && <PresetGallery />}
           {tab === "themes" && <ThemeGallery />}
           {tab === "fonts" && <FontGallery />}
