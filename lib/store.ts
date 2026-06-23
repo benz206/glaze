@@ -75,6 +75,40 @@ export const DEFAULT_SETTINGS: SnippetSettings = {
   backgroundPadding: 64,
 };
 
+/**
+ * Snapshot the current *appearance* as a preset patch — everything a style
+ * preset controls (theme, font, window chrome, copy button, background), but
+ * never the user's content (code, language, title text, canvas width).
+ */
+export function pickLook(s: SnippetSettings): Partial<SnippetSettings> {
+  return {
+    theme: s.theme,
+    fontFamily: s.fontFamily,
+    fontSize: s.fontSize,
+    lineHeight: s.lineHeight,
+    showLineNumbers: s.showLineNumbers,
+    wrap: s.wrap,
+    windowRadius: s.windowRadius,
+    windowOpacity: s.windowOpacity,
+    windowPadding: s.windowPadding,
+    shadow: s.shadow,
+    showWindowBorder: s.showWindowBorder,
+    showTrafficLights: s.showTrafficLights,
+    trafficLightStyle: s.trafficLightStyle,
+    trafficLightColors: { ...s.trafficLightColors },
+    showTitle: s.showTitle,
+    showCopyButton: s.showCopyButton,
+    copyButtonMode: s.copyButtonMode,
+    copyButtonText: s.copyButtonText,
+    copyButtonIcon: s.copyButtonIcon,
+    copyButtonVariant: s.copyButtonVariant,
+    copyButtonColor: s.copyButtonColor,
+    copyButtonRadius: s.copyButtonRadius,
+    background: { ...s.background },
+    backgroundPadding: s.backgroundPadding,
+  };
+}
+
 interface SnippetStore extends SnippetSettings {
   /** Patch any top-level setting. */
   set: <K extends keyof SnippetSettings>(key: K, value: SnippetSettings[K]) => void;

@@ -1,5 +1,6 @@
 "use client";
 
+import { X } from "lucide-react";
 import { MAC_DOTS, MONO_DOTS, type StylePreset } from "@/lib/presets";
 import { resolveBackground } from "@/lib/backgrounds";
 import { cn } from "@/lib/cn";
@@ -64,35 +65,54 @@ export function PresetCard({
   preset,
   active,
   onSelect,
+  onDelete,
 }: {
   preset: StylePreset;
   active?: boolean;
   onSelect: (preset: StylePreset) => void;
+  /** When provided, shows a delete button on hover (for custom presets). */
+  onDelete?: (preset: StylePreset) => void;
 }) {
   return (
-    <button
-      type="button"
-      onClick={() => onSelect(preset)}
-      className="group flex flex-col gap-2 text-left"
-    >
-      <div
-        className={cn(
-          "aspect-[4/3] overflow-hidden rounded-xl ring-1 transition-all",
-          active
-            ? "ring-2 ring-accent ring-offset-2 ring-offset-panel"
-            : "ring-border group-hover:ring-faint",
-        )}
+    <div className="group relative flex flex-col gap-2">
+      <button
+        type="button"
+        onClick={() => onSelect(preset)}
+        className="flex flex-col gap-2 text-left"
       >
-        <PresetThumb preset={preset} />
-      </div>
-      <span
-        className={cn(
-          "px-0.5 text-xs font-medium transition-colors",
-          active ? "text-white" : "text-muted group-hover:text-white",
-        )}
-      >
-        {preset.name}
-      </span>
-    </button>
+        <div
+          className={cn(
+            "aspect-[4/3] overflow-hidden rounded-xl ring-1 transition-all",
+            active
+              ? "ring-2 ring-accent ring-offset-2 ring-offset-panel"
+              : "ring-border group-hover:ring-faint",
+          )}
+        >
+          <PresetThumb preset={preset} />
+        </div>
+        <span
+          className={cn(
+            "px-0.5 text-xs font-medium transition-colors",
+            active ? "text-white" : "text-muted group-hover:text-white",
+          )}
+        >
+          {preset.name}
+        </span>
+      </button>
+
+      {onDelete && (
+        <button
+          type="button"
+          title="Delete style"
+          onClick={(e) => {
+            e.stopPropagation();
+            onDelete(preset);
+          }}
+          className="absolute right-1.5 top-1.5 hidden h-6 w-6 place-items-center rounded-md bg-black/55 text-white/90 backdrop-blur-sm transition-colors hover:bg-red-500/80 group-hover:grid"
+        >
+          <X size={13} />
+        </button>
+      )}
+    </div>
   );
 }

@@ -1,0 +1,81 @@
+// AUTO-GENERATED from Shiki's bundled themes — do not edit by hand.
+// Real editor background + representative syntax colors per Shiki theme,
+// used to derive preset thumbnails without hand-authoring color bars.
+
+export interface ThemeColors {
+  /** editor.background */
+  bg: string;
+  /** editor.foreground */
+  fg: string;
+  appearance: "dark" | "light";
+  /** four representative syntax hues for the thumbnail bars */
+  bars: [string, string, string, string];
+}
+
+export const THEME_COLORS: Record<string, ThemeColors> = {
+  "andromeeda": { bg: "#23262E", fg: "#D5CED9", appearance: "dark", bars: ["#c74ded", "#FFE66D", "#D5CED9", "#f39c12"] },
+  "aurora-x": { bg: "#07090F", fg: "#d4d4d4", appearance: "dark", bars: ["#C792EA", "#82AAFF", "#EEFFFF", "#F78C6C"] },
+  "ayu-dark": { bg: "#10141c", fg: "#bfbdb6", appearance: "dark", bars: ["#ff8f40", "#ffb454", "#aad94c", "#d2a6ff"] },
+  "ayu-light": { bg: "#fcfcfc", fg: "#5c6166", appearance: "light", bars: ["#fa8532", "#eba400", "#86b300", "#a37acc"] },
+  "ayu-mirage": { bg: "#242936", fg: "#cccac2", appearance: "dark", bars: ["#ffa659", "#ffcd66", "#d5ff80", "#dfbfff"] },
+  "catppuccin-frappe": { bg: "#303446", fg: "#c6d0f5", appearance: "dark", bars: ["#ef9f76", "#8caaee", "#a6d189", "#e5c890"] },
+  "catppuccin-latte": { bg: "#eff1f5", fg: "#4c4f69", appearance: "light", bars: ["#fe640b", "#1e66f5", "#40a02b", "#df8e1d"] },
+  "catppuccin-macchiato": { bg: "#24273a", fg: "#cad3f5", appearance: "dark", bars: ["#f5a97f", "#8aadf4", "#a6da95", "#eed49f"] },
+  "catppuccin-mocha": { bg: "#1e1e2e", fg: "#cdd6f4", appearance: "dark", bars: ["#fab387", "#89b4fa", "#a6e3a1", "#f9e2af"] },
+  "dark-plus": { bg: "#1E1E1E", fg: "#D4D4D4", appearance: "dark", bars: ["#b5cea8", "#569cd6", "#D4D4D4", "#4EC9B0"] },
+  "dracula": { bg: "#282A36", fg: "#F8F8F2", appearance: "dark", bars: ["#BD93F9", "#50FA7B", "#FF79C6", "#F8F8F2"] },
+  "dracula-soft": { bg: "#282A36", fg: "#f6f6f4", appearance: "dark", bars: ["#bf9eee", "#62e884", "#f286c4", "#f6f6f4"] },
+  "everforest-dark": { bg: "#2d353b", fg: "#d3c6aa", appearance: "dark", bars: ["#e67e80", "#a7c080", "#dbbc7f", "#d699b6"] },
+  "everforest-light": { bg: "#fdf6e3", fg: "#5c6a72", appearance: "light", bars: ["#f85552", "#8da101", "#dfa000", "#df69ba"] },
+  "github-dark": { bg: "#24292e", fg: "#e1e4e8", appearance: "dark", bars: ["#f97583", "#e1e4e8", "#6a737d", "#79b8ff"] },
+  "github-dark-default": { bg: "#0d1117", fg: "#e6edf3", appearance: "dark", bars: ["#ff7b72", "#d2a8ff", "#8b949e", "#7ee787"] },
+  "github-dark-dimmed": { bg: "#22272e", fg: "#adbac7", appearance: "dark", bars: ["#f47067", "#dcbdfb", "#768390", "#8ddb8c"] },
+  "github-dark-high-contrast": { bg: "#0a0c10", fg: "#f0f3f6", appearance: "dark", bars: ["#ff9492", "#dbb7ff", "#bdc4cc", "#72f088"] },
+  "github-light": { bg: "#fff", fg: "#24292e", appearance: "light", bars: ["#d73a49", "#24292e", "#6a737d", "#005cc5"] },
+  "github-light-default": { bg: "#ffffff", fg: "#1f2328", appearance: "light", bars: ["#cf222e", "#8250df", "#6e7781", "#116329"] },
+  "github-light-high-contrast": { bg: "#ffffff", fg: "#0e1116", appearance: "light", bars: ["#a0111f", "#622cbc", "#66707b", "#024c1a"] },
+  "gruvbox-dark-hard": { bg: "#1d2021", fg: "#ebdbb2", appearance: "dark", bars: ["#fb4934", "#fabd2f", "#b8bb26", "#d3869b"] },
+  "gruvbox-dark-medium": { bg: "#282828", fg: "#ebdbb2", appearance: "dark", bars: ["#fb4934", "#fabd2f", "#b8bb26", "#d3869b"] },
+  "gruvbox-dark-soft": { bg: "#32302f", fg: "#ebdbb2", appearance: "dark", bars: ["#fb4934", "#fabd2f", "#b8bb26", "#d3869b"] },
+  "gruvbox-light-hard": { bg: "#f9f5d7", fg: "#3c3836", appearance: "light", bars: ["#9d0006", "#b57614", "#79740e", "#8f3f71"] },
+  "gruvbox-light-medium": { bg: "#fbf1c7", fg: "#3c3836", appearance: "light", bars: ["#9d0006", "#b57614", "#79740e", "#8f3f71"] },
+  "gruvbox-light-soft": { bg: "#f2e5bc", fg: "#3c3836", appearance: "light", bars: ["#9d0006", "#b57614", "#79740e", "#8f3f71"] },
+  "horizon": { bg: "#1C1E26", fg: "#d4d4d4", appearance: "dark", bars: ["#B877DBE6", "#25B0BCE6", "#FAB795E6", "#F09483E6"] },
+  "horizon-bright": { bg: "#FDF0ED", fg: "#d4d4d4", appearance: "light", bars: ["#8A31B9", "#1D8991", "#F6661E", "#DC3318"] },
+  "houston": { bg: "#17191e", fg: "#eef0f9", appearance: "dark", bars: ["#ffd493", "#00daef", "#54b9ff", "#eef0f9"] },
+  "kanagawa-dragon": { bg: "#181616", fg: "#C5C9C5", appearance: "dark", bars: ["#8992A7", "#8BA4B0", "#C5C9C5", "#B6927B"] },
+  "kanagawa-lotus": { bg: "#F2ECBC", fg: "#545464", appearance: "light", bars: ["#624C83", "#4D699B", "#545464", "#CC6D00"] },
+  "kanagawa-wave": { bg: "#1F1F28", fg: "#DCD7BA", appearance: "dark", bars: ["#957FB8", "#7E9CD8", "#DCD7BA", "#FFA066"] },
+  "laserwave": { bg: "#27212e", fg: "#ffffff", appearance: "dark", bars: ["#40b4c4", "#EB64B9", "#b4dce7", "#b381c5"] },
+  "light-plus": { bg: "#FFFFFF", fg: "#000000", appearance: "light", bars: ["#098658", "#0000ff", "#000000ff", "#267f99"] },
+  "material-theme": { bg: "#263238", fg: "#EEFFFF", appearance: "dark", bars: ["#F78C6C", "#82AAFF", "#C3E88D", "#FFCB6B"] },
+  "material-theme-darker": { bg: "#212121", fg: "#EEFFFF", appearance: "dark", bars: ["#F78C6C", "#82AAFF", "#C3E88D", "#FFCB6B"] },
+  "material-theme-lighter": { bg: "#FAFAFA", fg: "#90A4AE", appearance: "light", bars: ["#F76D47", "#6182B8", "#91B859", "#E2931D"] },
+  "material-theme-ocean": { bg: "#0F111A", fg: "#babed8", appearance: "dark", bars: ["#F78C6C", "#82AAFF", "#C3E88D", "#FFCB6B"] },
+  "material-theme-palenight": { bg: "#292D3E", fg: "#babed8", appearance: "dark", bars: ["#F78C6C", "#82AAFF", "#C3E88D", "#FFCB6B"] },
+  "min-dark": { bg: "#1f1f1f", fg: "#d4d4d4", appearance: "dark", bars: ["#b392f0", "#f97583", "#9db1c5", "#f8f8f8"] },
+  "min-light": { bg: "#ffffff", fg: "#212121", appearance: "light", bars: ["#24292eff", "#D32F2F", "#2b5581", "#1976D2"] },
+  "monokai": { bg: "#272822", fg: "#f8f8f2", appearance: "dark", bars: ["#F92672", "#A6E22E", "#F8F8F2", "#AE81FF"] },
+  "night-owl": { bg: "#011627", fg: "#d6deeb", appearance: "dark", bars: ["#c792ea", "#ecc48d", "#F78C6C", "#ffcb8b"] },
+  "night-owl-light": { bg: "#FBFBFB", fg: "#403f53", appearance: "light", bars: ["#994cc3", "#4876d6", "#aa0982", "#c96765"] },
+  "nord": { bg: "#2e3440", fg: "#d8dee9", appearance: "dark", bars: ["#81A1C1", "#88C0D0", "#A3BE8C", "#B48EAD"] },
+  "one-dark-pro": { bg: "#282c34", fg: "#abb2bf", appearance: "dark", bars: ["#c678dd", "#61afef", "#98c379", "#d19a66"] },
+  "one-light": { bg: "#FAFAFA", fg: "#383A42", appearance: "light", bars: ["#A626A4", "#4078F2", "#50A14F", "#986801"] },
+  "plastic": { bg: "#21252B", fg: "#A9B2C3", appearance: "dark", bars: ["#E06C75", "#B57EDC", "#98C379", "#56B6C2"] },
+  "poimandres": { bg: "#1b1e28", fg: "#a6accd", appearance: "dark", bars: ["#5DE4c7c0", "#ADD7FF", "#5DE4c7", "#a6accd"] },
+  "red": { bg: "#390000", fg: "#F8F8F8", appearance: "dark", bars: ["#f12727ff", "#ffb454ff", "#F8F8F8", "#994646ff"] },
+  "rose-pine": { bg: "#191724", fg: "#e0def4", appearance: "dark", bars: ["#31748f", "#eb6f92", "#f6c177", "#ebbcba"] },
+  "rose-pine-dawn": { bg: "#faf4ed", fg: "#575279", appearance: "light", bars: ["#286983", "#b4637a", "#ea9d34", "#d7827e"] },
+  "rose-pine-moon": { bg: "#232136", fg: "#e0def4", appearance: "dark", bars: ["#3e8fb0", "#eb6f92", "#f6c177", "#ea9a97"] },
+  "slack-dark": { bg: "#222222", fg: "#E6E6E6", appearance: "dark", bars: ["#569cd6", "#DCDCAA", "#ce9178", "#b5cea8"] },
+  "slack-ochin": { bg: "#FFF", fg: "#000", appearance: "light", bars: ["#7b30d0", "#7eb233", "#110000", "#174781"] },
+  "snazzy-light": { bg: "#FAFBFC", fg: "#565869", appearance: "light", bars: ["#F767BB", "#09A1ED", "#CF9C00", "#FF5C57"] },
+  "solarized-dark": { bg: "#002B36", fg: "#839496", appearance: "dark", bars: ["#859900", "#268BD2", "#839496", "#D33682"] },
+  "solarized-light": { bg: "#FDF6E3", fg: "#657B83", appearance: "light", bars: ["#859900", "#268BD2", "#657B83", "#D33682"] },
+  "synthwave-84": { bg: "#262335", fg: "#d4d4d4", appearance: "dark", bars: ["#72f1b8", "#36f9f6", "#848bbd", "#f97e72"] },
+  "tokyo-night": { bg: "#1a1b26", fg: "#a9b1d6", appearance: "dark", bars: ["#5a638c", "#0db9d7", "#51597d", "#ff9e64"] },
+  "vesper": { bg: "#101010", fg: "#FFF", appearance: "dark", bars: ["#A0A0A0", "#FFC799", "#FFF", "#FFF"] },
+  "vitesse-black": { bg: "#000", fg: "#dbd7cacc", appearance: "dark", bars: ["#444444", "#80a665", "#758575dd", "#4C9A91"] },
+  "vitesse-dark": { bg: "#121212", fg: "#dbd7caee", appearance: "dark", bars: ["#666666", "#80a665", "#758575dd", "#4C9A91"] },
+  "vitesse-light": { bg: "#ffffff", fg: "#393a34", appearance: "light", bars: ["#999999", "#59873a", "#a0ada0", "#2f798a"] },
+};

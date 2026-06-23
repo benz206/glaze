@@ -19,6 +19,20 @@ export const SOLID_SWATCHES: Preset[] = [
   { id: "forest", label: "Forest", css: "#10241b" },
   { id: "sand", label: "Sand", css: "#e7e1d6" },
   { id: "cloud", label: "Cloud", css: "#eef2f7" },
+  { id: "obsidian", label: "Obsidian", css: "#08080a" },
+  { id: "midnight", label: "Midnight", css: "#0a0e1a" },
+  { id: "navy", label: "Navy", css: "#0d1b3e" },
+  { id: "espresso", label: "Espresso", css: "#1f1410" },
+  { id: "wine", label: "Wine", css: "#2b0d18" },
+  { id: "pine", label: "Pine", css: "#0c1f1c" },
+  { id: "eggplant", label: "Eggplant", css: "#1d1228" },
+  { id: "steel", label: "Steel", css: "#1a2026" },
+  { id: "charcoal", label: "Charcoal", css: "#171717" },
+  { id: "rust", label: "Rust", css: "#2a1208" },
+  { id: "mocha", label: "Mocha", css: "#efe7dd" },
+  { id: "fog", label: "Fog", css: "#dde3ea" },
+  { id: "mint-cream", label: "Mint Cream", css: "#e3f1ea" },
+  { id: "blush", label: "Blush", css: "#f6e3e8" },
 ];
 
 // Linear / conic gradient presets.
@@ -35,6 +49,26 @@ export const GRADIENT_PRESETS: Preset[] = [
   { id: "cosmic", label: "Cosmic", css: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)" },
   { id: "flare", label: "Flare", css: "conic-gradient(from 180deg at 50% 50%, #ff5f6d, #ffc371, #ff5f6d)" },
   { id: "dusk", label: "Dusk", css: "linear-gradient(135deg, #355c7d 0%, #6c5b7b 50%, #c06c84 100%)" },
+  { id: "oceanic", label: "Oceanic", css: "linear-gradient(135deg, #2e3192 0%, #1bffff 100%)" },
+  { id: "fuchsia", label: "Fuchsia", css: "linear-gradient(135deg, #ec008c 0%, #fc6767 100%)" },
+  { id: "lime", label: "Lime", css: "linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%)" },
+  { id: "coral", label: "Coral", css: "linear-gradient(135deg, #ff9966 0%, #ff5e62 100%)" },
+  { id: "royal", label: "Royal", css: "linear-gradient(135deg, #141e30 0%, #243b55 100%)" },
+  { id: "neon", label: "Neon", css: "linear-gradient(135deg, #00f260 0%, #0575e6 100%)" },
+  { id: "rosewater", label: "Rosewater", css: "linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%)" },
+  { id: "emerald", label: "Emerald", css: "linear-gradient(135deg, #0ba360 0%, #3cba92 100%)" },
+  { id: "tangerine", label: "Tangerine", css: "linear-gradient(135deg, #ff512f 0%, #f09819 100%)" },
+  { id: "indigo", label: "Indigo", css: "linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%)" },
+  { id: "midnight-city", label: "Midnight City", css: "linear-gradient(135deg, #232526 0%, #414345 100%)" },
+  { id: "plasma", label: "Plasma", css: "linear-gradient(135deg, #7303c0 0%, #ec38bc 50%, #fdeff9 100%)" },
+  { id: "deep-sea", label: "Deep Sea", css: "linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%)" },
+  { id: "lavender", label: "Lavender", css: "linear-gradient(135deg, #b993d6 0%, #8ca6db 100%)" },
+  { id: "sunrise", label: "Sunrise", css: "linear-gradient(135deg, #ff512f 0%, #dd2476 100%)" },
+  { id: "gold", label: "Gold", css: "linear-gradient(135deg, #f7971e 0%, #ffd200 100%)" },
+  { id: "ice", label: "Ice", css: "linear-gradient(135deg, #74ebd5 0%, #acb6e5 100%)" },
+  { id: "berry", label: "Berry", css: "linear-gradient(135deg, #872ca0 0%, #f64f59 100%)" },
+  { id: "halo", label: "Halo", css: "conic-gradient(from 90deg at 50% 50%, #5b86e5, #36d1dc, #5b86e5)" },
+  { id: "spectrum", label: "Spectrum", css: "conic-gradient(from 0deg at 50% 50%, #ff5f6d, #ffc371, #38f9d7, #5b86e5, #c471f5, #ff5f6d)" },
 ];
 
 // Multi-stop mesh gradients (layered radials over a base color).
@@ -92,6 +126,123 @@ export const MESH_PRESETS: Preset[] = [
       "radial-gradient(at 80% 16%, #9f041b 0px, transparent 45%)," +
       "radial-gradient(at 55% 90%, #fbb034 0px, transparent 50%)," +
       "linear-gradient(135deg, #1a0606, #100303)",
+  },
+  {
+    id: "aurora-borealis",
+    label: "Aurora Borealis",
+    css:
+      "radial-gradient(at 10% 10%, #00ffa3 0px, transparent 45%)," +
+      "radial-gradient(at 70% 20%, #03a9f4 0px, transparent 45%)," +
+      "radial-gradient(at 40% 80%, #7b2ff7 0px, transparent 50%)," +
+      "linear-gradient(135deg, #021416, #03101c)",
+  },
+  {
+    id: "deep-space",
+    label: "Deep Space",
+    css:
+      "radial-gradient(at 25% 18%, #3a1c71 0px, transparent 45%)," +
+      "radial-gradient(at 78% 30%, #d76d77 0px, transparent 40%)," +
+      "radial-gradient(at 55% 88%, #1f2a63 0px, transparent 50%)," +
+      "linear-gradient(135deg, #05060f, #02030a)",
+  },
+  {
+    id: "ultraviolet",
+    label: "Ultraviolet",
+    css:
+      "radial-gradient(at 18% 20%, #b721ff 0px, transparent 45%)," +
+      "radial-gradient(at 82% 16%, #21d4fd 0px, transparent 45%)," +
+      "radial-gradient(at 50% 92%, #6a11cb 0px, transparent 50%)," +
+      "linear-gradient(135deg, #120524, #08021a)",
+  },
+  {
+    id: "sunset-haze",
+    label: "Sunset Haze",
+    css:
+      "radial-gradient(at 15% 25%, #ff6a88 0px, transparent 45%)," +
+      "radial-gradient(at 85% 15%, #ff99ac 0px, transparent 45%)," +
+      "radial-gradient(at 55% 95%, #ffb347 0px, transparent 50%)," +
+      "linear-gradient(135deg, #2a0d24, #1a0716)",
+  },
+  {
+    id: "mint-fizz",
+    label: "Mint Fizz",
+    css:
+      "radial-gradient(at 20% 18%, #43e97b 0px, transparent 45%)," +
+      "radial-gradient(at 80% 22%, #38f9d7 0px, transparent 45%)," +
+      "radial-gradient(at 50% 88%, #a8ff78 0px, transparent 50%)," +
+      "linear-gradient(135deg, #04201a, #021410)",
+  },
+  {
+    id: "cyberpunk",
+    label: "Cyberpunk",
+    css:
+      "radial-gradient(at 14% 16%, #ff007a 0px, transparent 42%)," +
+      "radial-gradient(at 86% 18%, #00e5ff 0px, transparent 42%)," +
+      "radial-gradient(at 50% 92%, #fee600 0px, transparent 48%)," +
+      "linear-gradient(135deg, #11021a, #060010)",
+  },
+  {
+    id: "golden-hour",
+    label: "Golden Hour",
+    css:
+      "radial-gradient(at 18% 22%, #ffd76f 0px, transparent 45%)," +
+      "radial-gradient(at 82% 18%, #ff8c42 0px, transparent 45%)," +
+      "radial-gradient(at 50% 90%, #c9485b 0px, transparent 50%)," +
+      "linear-gradient(135deg, #1f0f08, #140805)",
+  },
+  {
+    id: "oceanic-mesh",
+    label: "Oceanic",
+    css:
+      "radial-gradient(at 16% 18%, #2af598 0px, transparent 45%)," +
+      "radial-gradient(at 84% 22%, #009efd 0px, transparent 45%)," +
+      "radial-gradient(at 50% 90%, #2e3192 0px, transparent 50%)," +
+      "linear-gradient(135deg, #041326, #020a18)",
+  },
+  {
+    id: "forest-mist",
+    label: "Forest Mist",
+    css:
+      "radial-gradient(at 22% 16%, #56ab2f 0px, transparent 45%)," +
+      "radial-gradient(at 78% 24%, #a8e063 0px, transparent 45%)," +
+      "radial-gradient(at 50% 88%, #134e5e 0px, transparent 50%)," +
+      "linear-gradient(135deg, #08160f, #04100b)",
+  },
+  {
+    id: "candy-cloud",
+    label: "Candy Cloud",
+    css:
+      "radial-gradient(at 20% 20%, #ffb6e6 0px, transparent 50%)," +
+      "radial-gradient(at 80% 14%, #c2b6ff 0px, transparent 50%)," +
+      "radial-gradient(at 55% 82%, #b6f0ff 0px, transparent 50%)," +
+      "linear-gradient(135deg, #fff0fb, #f3f0ff)",
+  },
+  {
+    id: "peachy",
+    label: "Peachy",
+    css:
+      "radial-gradient(at 18% 22%, #ffd3a5 0px, transparent 50%)," +
+      "radial-gradient(at 82% 16%, #fd6585 0px, transparent 45%)," +
+      "radial-gradient(at 52% 88%, #ffe7c7 0px, transparent 50%)," +
+      "linear-gradient(135deg, #fff4ee, #ffe9ec)",
+  },
+  {
+    id: "ember-glow",
+    label: "Ember Glow",
+    css:
+      "radial-gradient(at 16% 20%, #ff4e00 0px, transparent 42%)," +
+      "radial-gradient(at 84% 18%, #ec9f05 0px, transparent 42%)," +
+      "radial-gradient(at 50% 92%, #8a1a05 0px, transparent 50%)," +
+      "linear-gradient(135deg, #170603, #0d0302)",
+  },
+  {
+    id: "twilight-mesh",
+    label: "Twilight",
+    css:
+      "radial-gradient(at 20% 18%, #6a3093 0px, transparent 45%)," +
+      "radial-gradient(at 80% 24%, #a044ff 0px, transparent 45%)," +
+      "radial-gradient(at 50% 90%, #203a43 0px, transparent 50%)," +
+      "linear-gradient(135deg, #0c0a1d, #060512)",
   },
 ];
 

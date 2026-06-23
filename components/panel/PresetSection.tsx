@@ -1,6 +1,6 @@
 "use client";
 
-import { Wand2, LayoutGrid } from "lucide-react";
+import { Wand2, LayoutGrid, Plus } from "lucide-react";
 import { Section } from "../ui/Section";
 import { PresetCard } from "../studio/PresetCard";
 import { useSnippetStore } from "@/lib/store";
@@ -29,14 +29,25 @@ export function PresetSection() {
         ))}
       </div>
 
-      <button
-        type="button"
-        onClick={() => openStudio("styles")}
-        className="flex w-full items-center justify-center gap-2 rounded-lg border border-border bg-panel-2 py-2 text-xs font-medium text-muted transition-colors hover:text-white"
-      >
-        <LayoutGrid size={14} />
-        Browse all styles
-      </button>
+      <div className="flex gap-2">
+        <button
+          type="button"
+          onClick={() => openStudio("styles")}
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-panel-2 py-2 text-xs font-medium text-muted transition-colors hover:text-white"
+        >
+          <LayoutGrid size={14} />
+          Browse all
+        </button>
+        <button
+          type="button"
+          onClick={() => openStudio("styles")}
+          title="Save the current look as a reusable style"
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-panel-2 py-2 text-xs font-medium text-muted transition-colors hover:text-white"
+        >
+          <Plus size={14} />
+          Save current
+        </button>
+      </div>
     </Section>
   );
 }
