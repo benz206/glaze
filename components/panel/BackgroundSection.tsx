@@ -4,6 +4,7 @@ import { Palette } from "lucide-react";
 import { Section } from "../ui/Section";
 import { ColorField, Field, Segmented, Slider, SwatchGrid, TextField, Toggle } from "../ui/Controls";
 import { useSnippetStore } from "@/lib/store";
+import { useUIStore } from "@/lib/ui";
 import { GRADIENT_PRESETS, MESH_PRESETS, SOLID_SWATCHES } from "@/lib/backgrounds";
 import type { BackgroundType } from "@/lib/types";
 
@@ -20,10 +21,23 @@ export function BackgroundSection() {
   const setBackground = useSnippetStore((s) => s.setBackground);
   const bg = useSnippetStore((s) => s.background);
   const padding = useSnippetStore((s) => s.backgroundPadding);
+  const openStudio = useUIStore((s) => s.openStudio);
 
   return (
     <Section title="Background" icon={Palette}>
       <Segmented value={bg.type} options={TYPE_OPTIONS} onChange={(v) => setBackground({ type: v })} />
+
+      {(bg.type === "solid" || bg.type === "gradient" || bg.type === "mesh") && (
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={() => openStudio("backgrounds")}
+            className="text-[11px] font-medium text-accent transition-opacity hover:opacity-80"
+          >
+            Browse all
+          </button>
+        </div>
+      )}
 
       {bg.type === "solid" && (
         <>

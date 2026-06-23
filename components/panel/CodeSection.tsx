@@ -4,12 +4,26 @@ import { Code2 } from "lucide-react";
 import { Section } from "../ui/Section";
 import { Field, Select, Slider, Toggle } from "../ui/Controls";
 import { useSnippetStore } from "@/lib/store";
+import { useUIStore } from "@/lib/ui";
 import { LANGUAGES } from "@/lib/languages";
 import { THEMES } from "@/lib/themes";
 import { FONTS } from "@/lib/fonts";
 
+function BrowseLink({ label, onClick }: { label: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="text-[11px] font-medium text-accent transition-opacity hover:opacity-80"
+    >
+      {label}
+    </button>
+  );
+}
+
 export function CodeSection() {
   const update = useSnippetStore((s) => s.set);
+  const openStudio = useUIStore((s) => s.openStudio);
   const language = useSnippetStore((s) => s.language);
   const theme = useSnippetStore((s) => s.theme);
   const fontFamily = useSnippetStore((s) => s.fontFamily);
@@ -28,7 +42,11 @@ export function CodeSection() {
         />
       </Field>
 
-      <Field label="Syntax theme">
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-muted">Syntax theme</span>
+          <BrowseLink label="Preview all" onClick={() => openStudio("themes")} />
+        </div>
         <Select
           value={theme}
           onChange={(v) => update("theme", v)}
@@ -37,15 +55,19 @@ export function CodeSection() {
             value: t.id,
           }))}
         />
-      </Field>
+      </div>
 
-      <Field label="Font">
+      <div className="space-y-1.5">
+        <div className="flex items-center justify-between">
+          <span className="text-xs text-muted">Font</span>
+          <BrowseLink label="Preview all" onClick={() => openStudio("fonts")} />
+        </div>
         <Select
           value={fontFamily}
           onChange={(v) => update("fontFamily", v)}
           options={FONTS.map((f) => ({ label: f.label, value: f.id }))}
         />
-      </Field>
+      </div>
 
       <Slider
         label="Font size"

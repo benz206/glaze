@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Toolbar } from "@/components/Toolbar";
 import { ControlPanel } from "@/components/panel/ControlPanel";
 import { SnippetCanvas } from "@/components/editor/SnippetCanvas";
+import { StudioModal } from "@/components/studio/StudioModal";
 
 export default function Home() {
   const canvasRef = useRef<HTMLDivElement>(null);
@@ -31,6 +32,8 @@ export default function Home() {
 
         <ControlPanel />
       </div>
+
+      <StudioModal />
     </div>
   );
 }

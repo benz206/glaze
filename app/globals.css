@@ -154,3 +154,26 @@ input[type="color"]::-moz-color-swatch {
   mix-blend-mode: overlay;
   pointer-events: none;
 }
+
+/* ---- Studio theme previews: read-only Shiki output, scoped padding ---- */
+.glaze-preview pre.shiki {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 11px;
+  line-height: 1.55;
+  height: 100%;
+  overflow: hidden;
+  white-space: pre;
+  font-family: var(--font-mono);
+}
+
+/* ---- Brand gradient (purple → pink → blue) for primary accents ---- */
+.glaze-grad {
+  background-image: linear-gradient(120deg, #9b5de5 0%, #f15bb5 50%, #4361ee 100%);
+}
+.glaze-grad-text {
+  background-image: linear-gradient(120deg, #b78bff 0%, #f57fc4 50%, #6d8bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

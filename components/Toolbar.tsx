@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, type RefObject } from "react";
-import { Check, Copy, Download, FileCode, RotateCcw, Sparkles } from "lucide-react";
+import { Check, Copy, Download, FileCode, LayoutGrid, RotateCcw, Sparkles } from "lucide-react";
 import { useSnippetStore } from "@/lib/store";
+import { useUIStore } from "@/lib/ui";
 import { copyImageToClipboard, exportImage } from "@/lib/export";
 import { cn } from "@/lib/cn";
 
@@ -20,6 +21,7 @@ function filename(title: string, ext: string): string {
 export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | null> }) {
   const title = useSnippetStore((s) => s.title);
   const reset = useSnippetStore((s) => s.reset);
+  const openStudio = useUIStore((s) => s.openStudio);
 
   const [scale, setScale] = useState(2);
   const [busy, setBusy] = useState<null | "png" | "svg" | "copy">(null);
@@ -59,6 +61,15 @@ export function Toolbar({ canvasRef }: { canvasRef: RefObject<HTMLDivElement | n
 
       <div className="ml-auto flex items-center gap-2">
         {error && <span className="text-xs text-red-400">{error}</span>}
+
+        <button
+          type="button"
+          onClick={() => openStudio()}
+          className="flex h-8 items-center gap-1.5 rounded-lg border border-border bg-panel-2 px-3 text-xs font-medium text-white hover:bg-elevated"
+        >
+          <LayoutGrid size={15} />
+          Studio
+        </button>
 
         <div className="flex items-center rounded-lg border border-border bg-panel-2 p-0.5">
           {SCALES.map((s) => (
